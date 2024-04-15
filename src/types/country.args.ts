@@ -8,7 +8,7 @@ export class CreateOrUpdateCountry {
   code!: string;
 
   @Field()
-  @MinLength(2)
+  @MinLength(4)
   name!: string;
 
   @Field()

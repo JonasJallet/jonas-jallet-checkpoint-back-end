@@ -1,9 +1,16 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  Unique,
+} from "typeorm";
 import { ObjectType, Field, ID } from "type-graphql";
 import { CreateOrUpdateCountry } from "../types/country.args";
 
 @Entity()
 @ObjectType()
+@Unique("custom_unique_country", ["code", "name"])
 export class Country extends BaseEntity {
   @PrimaryGeneratedColumn()
   @Field(() => ID)
